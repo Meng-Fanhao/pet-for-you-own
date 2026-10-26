@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/niceyear/tauri-apps/refs/heads/dev/.schema/config.schema.json",
+  "productName": "Desktop Pet",
+  "version": "1.0.1",
+  "identifier": "com.pet-desktop",
+  "build": {
+    "frontendDist": "../src",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npx http-server src -p 1420 -c-1 --cors",
+    "beforeBuildCommand": ""
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "title": "Desktop Pet",
+        "width": 256,
+        "height": 256,
+        "transparent": true,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "resizable": false,
+        "acceptFirstMouse": true,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "copyright": "Copyright (c) 2026 孟凡皓 (cn.bj). All rights reserved.",
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "signingIdentity": null,
+      "entitlements": "entitlements.plist"
+    },
+    "windows": {
+      "nsis": {}
+    }
+  },
+  "plugins": {
+    "opener": {}
+  }
+}

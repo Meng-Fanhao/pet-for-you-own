@@ -1,0 +1,20 @@
+# Build outputs
+src-tauri/target/
+node_modules/
+dist/
+
+# Local configuration and credentials
+config.local.yaml
+.env
+.env.*
+
+# Local tool caches
+.understand-anything/
+
+# OS / editor noise
+.DS_Store
+**/.DS_Store
+*.log
+
+# Self-referential local symlink
+/pet for you own

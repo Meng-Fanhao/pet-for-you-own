@@ -1,0 +1,161 @@
+<!-- Copyright (c) 2026 孟凡皓 (cn.bj). All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop Pet Settings</title>
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+  <div class="settings-container">
+    <h1 data-i18n="title">Desktop Pet Settings</h1>
+
+    <section class="setting-group">
+      <h2 data-i18n="appearance">Pet Appearance</h2>
+      <div class="setting-row">
+        <label data-i18n="current_image">Current Pet Image:</label>
+        <div class="image-picker">
+          <img id="preview-image" src="assets/default-pet.svg" alt="pet preview" />
+          <button type="button" id="pick-image-btn" data-i18n="change_image">Change Image</button>
+          <input type="file" id="image-file-input" accept="image/*" hidden title="Select pet image file" />
+          <button type="button" id="cutout-btn" class="cutout" data-i18n="one_click_cutout">One-click Cutout</button>
+          <p class="cutout-hint" data-i18n="cutout_hint">Works best on people. GIF is not supported.</p>
+          <button type="button" id="reset-image-btn" class="secondary" data-i18n="reset_default">Reset to Default</button>
+          <p id="cutout-status" class="cutout-status"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="setting-group">
+      <h2 data-i18n="interaction_title">Interaction</h2>
+      <div class="setting-col">
+        <label data-i18n="pet_size_label">Pet size:</label>
+        <div class="range-row">
+          <input type="range" id="pet-size-input" min="128" max="512" step="32" value="256" />
+          <span id="pet-size-value" class="range-value">256px</span>
+        </div>
+      </div>
+      <div class="setting-row spaced">
+        <label data-i18n="random_actions_label">Random actions</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="random-actions-toggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="setting-row spaced">
+        <label data-i18n="wander_label">Screen wandering</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="wander-toggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="setting-col spaced">
+        <label data-i18n="throw_power_label">Throw power:</label>
+        <div class="range-row">
+          <input type="range" id="throw-power-input" min="0.5" max="2" step="0.1" value="1" />
+          <span id="throw-power-value" class="range-value">1.0x</span>
+        </div>
+      </div>
+      <div class="setting-col">
+        <label data-i18n="bounce_label">Bounce:</label>
+        <div class="range-row">
+          <input type="range" id="bounce-input" min="0.3" max="1" step="0.05" value="0.78" />
+          <span id="bounce-value" class="range-value">0.78</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="setting-group">
+      <h2 data-i18n="language_title">Language</h2>
+      <div class="setting-row">
+        <label data-i18n="language_label">Interface Language:</label>
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="setting-group">
+      <h2 data-i18n="ai_chat_title">AI Voice Chat</h2>
+      <div class="setting-col">
+        <label data-i18n="provider_label">AI Provider:</label>
+        <select id="provider-select">
+          <option value="coze">Coze</option>
+          <option value="deepseek">DeepSeek</option>
+        </select>
+      </div>
+      <div id="coze-fields">
+        <div class="setting-col">
+          <label data-i18n="coze_pat_label">Coze PAT:</label>
+          <input type="password" id="coze-pat-input" placeholder="pat_..." autocomplete="off" />
+        </div>
+        <div class="setting-col">
+          <label data-i18n="coze_bot_label">Coze Bot ID:</label>
+          <input type="text" id="coze-bot-input" placeholder="1234567890" autocomplete="off" />
+        </div>
+      </div>
+      <div id="deepseek-fields" style="display:none">
+        <div class="setting-col">
+          <label data-i18n="api_key_label">DeepSeek API Key:</label>
+          <input type="password" id="api-key-input" placeholder="sk-..." autocomplete="off" />
+        </div>
+      </div>
+      <div class="setting-col">
+        <label data-i18n="persona_label">Pet Persona:</label>
+        <textarea id="persona-input" rows="3" placeholder="You are a cute desktop pet..."></textarea>
+      </div>
+      <div class="setting-col">
+        <label data-i18n="memory_label">Conversation Memory (turns):</label>
+        <input type="number" id="memory-input" min="1" max="20" value="10" />
+      </div>
+    </section>
+
+    <section class="setting-group" id="chat-section">
+      <h2 data-i18n="chat_history_title">Chat History</h2>
+      <div id="chat-history-panel">
+        <div id="chat-messages"><p class="chat-empty" data-i18n="chat_empty">No messages yet. Type or use the mic on the pet.</p></div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-text-input" data-i18n-placeholder="chat_placeholder" placeholder="Type a message..." autocomplete="off" />
+        <button type="button" id="chat-send-btn" class="small">Send</button>
+        <button type="button" id="chat-clear-btn" class="secondary small" data-i18n="chat_clear">Clear</button>
+      </div>
+    </section>
+
+    <section class="setting-group">
+      <h2 data-i18n="startup">Startup</h2>
+      <div class="setting-row">
+        <label data-i18n="autostart_label">Auto-start with system:</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="autostart-toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="setting-group">
+      <h2 data-i18n="controls">Controls</h2>
+      <div class="setting-row">
+        <button type="button" id="toggle-pet-btn" data-i18n="toggle_pet">Show/Hide Pet</button>
+      </div>
+    </section>
+
+    <section class="setting-group actions">
+      <button type="button" id="save-btn" class="primary large" data-i18n="save">Save Settings</button>
+      <p id="save-status" class="status-message"></p>
+    </section>
+
+    <section class="setting-group info">
+      <p>Desktop Pet v1.0.1</p>
+      <p class="hint" data-i18n="hint">Click the pet to feed it. Move your mouse over it to pet it.</p>
+      <p class="copyright" data-i18n="copyright">Copyright (c) 2026 孟凡皓. All rights reserved.</p>
+    </section>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="vendor/mediapipe/vision_bundle.js"></script>
+  <script src="js/cutout.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

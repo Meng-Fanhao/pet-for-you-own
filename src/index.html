@@ -1,0 +1,34 @@
+<!-- Copyright (c) 2026 孟凡皓 (cn.bj). All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop Pet</title>
+  <link rel="stylesheet" href="css/pet.css">
+</head>
+<body>
+  <div id="pet-container">
+    <div id="speech-bubble"><span id="speech-text"></span></div>
+    <div id="pet-stage">
+      <img id="pet-image" src="assets/default-pet.svg" alt="pet" draggable="false" />
+    </div>
+    <div id="particle-layer"></div>
+    <div id="hearts-layer"></div>
+    <div id="sticker-layer"></div>
+    <button id="mic-toggle" title="Voice Chat" aria-label="Voice Chat">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div id="copyright">(c) 2026 孟凡皓</div>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/physics.js"></script>
+  <script src="vendor/mediapipe/vision_bundle.js"></script>
+  <script src="js/rig.js"></script>
+  <script src="js/pet.js"></script>
+  <script src="js/voice-chat.js"></script>
+</body>
+</html>

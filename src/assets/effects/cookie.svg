@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="cookie" x1="14" y1="12" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd18a"/>
+      <stop offset=".55" stop-color="#f0ad5f"/>
+      <stop offset="1" stop-color="#d98b3f"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="24" fill="url(#cookie)" stroke="#b9712f" stroke-width="2"/>
+  <circle cx="22" cy="24" r="4" fill="#8a4b1f"/>
+  <circle cx="38" cy="19" r="3.4" fill="#8a4b1f"/>
+  <circle cx="44" cy="34" r="4.4" fill="#8a4b1f"/>
+  <circle cx="30" cy="38" r="3.2" fill="#8a4b1f"/>
+  <circle cx="21" cy="42" r="2.8" fill="#8a4b1f"/>
+  <path d="M17 21c2-4 5-6 9-6.5" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+</svg>

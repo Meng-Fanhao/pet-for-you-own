@@ -1,0 +1,22 @@
+{
+  "name": "desktop-pet",
+  "private": true,
+  "version": "1.0.1",
+  "author": "孟凡皓 (cn.bj)",
+  "license": "UNLICENSED",
+  "description": "A lightweight cross-platform desktop pet application",
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "sync:mediapipe": "node scripts/sync-mediapipe.js"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "http-server": "^14.1.1",
+    "@mediapipe/tasks-vision": "^1.1.1"
+  },
+  "dependencies": {
+    "@tauri-apps/plugin-fs": "^2.5.1"
+  }
+}

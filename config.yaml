@@ -1,0 +1,46 @@
+# Voice Assistant Configuration
+# Copy this file to config.local.yaml and fill in your API credentials
+
+# AI Provider: "deepseek" or "coze"
+provider: "coze"
+
+# --- DeepSeek API ---
+deepseek:
+  api_key: "YOUR_DEEPSEEK_API_KEY"
+  base_url: "https://lilin.ink"
+  model: "deepseek-v4-pro"
+  max_tokens: 150
+  temperature: 0.9
+
+# --- Coze API ---
+coze:
+  pat: "YOUR_COZE_PAT"                # Personal Access Token from Coze console
+  bot_id: "YOUR_COZE_BOT_ID"             # Bot ID from Coze
+  base_url: "https://api.coze.cn/v3"   # China: api.coze.cn, Global: api.coze.com
+  user_id: "YOUR_COZE_USER_ID"  # Unique user identifier
+
+# --- Common ---
+persona: |
+  你是一只可爱的桌面宠物。你始终用中文回复，说非常简短俏皮的句子（1-2行）。
+  你友好、好奇，有时会发出可爱的小宠物声音。你深爱你的主人，经常表达亲昵。
+  永远不要打破角色设定。永远不要提及你是一个AI。
+
+# Whisper STT
+whisper_model: "base"
+whisper_language: "zh"
+
+# Audio Capture
+sample_rate: 16000
+chunk_duration: 2.0
+virtual_device_name:
+  windows: "CABLE Output"
+  macos: "BlackHole 2ch"
+
+# TTS
+tts_engine: "edge-tts"
+tts_voice:
+  win: "zh-CN-XiaoxiaoNeural"
+  mac: "zh-CN-XiaoxiaoNeural"
+
+# Conversation
+max_history_turns: 10
